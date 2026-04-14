@@ -1,0 +1,92 @@
+{
+  "name": "@ecss/typescript-plugin",
+  "version": "0.0.0",
+  "description": "TypeScript Language Service Plugin for ECSS — provides per-file types for .ecss imports.",
+  "keywords": [
+    "css",
+    "ecss",
+    "language-service",
+    "plugin",
+    "typescript"
+  ],
+  "homepage": "https://ecss.webea.ch",
+  "bugs": {
+    "url": "https://github.com/webeach/ecss-typescript-plugin/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ruslan Martynov",
+    "email": "github@webea.ch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webeach/ecss-typescript-plugin"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "typecheck": "tsc --noEmit",
+    "release": "semantic-release",
+    "prepare": "is-ci || husky"
+  },
+  "dependencies": {
+    "@ecss/parser": "^0.1.2",
+    "@ecss/transformer": "^0.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.6",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "@types/node": "^25.6.0",
+    "husky": "^9.1.7",
+    "is-ci": "^4.1.0",
+    "lint-staged": "^16.1.6",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0",
+    "semantic-release": "^24.2.9",
+    "tsup": "^8",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  },
+  "lint-staged": {
+    "**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}": [
+      "oxlint --fix",
+      "oxfmt"
+    ],
+    "**/*.json": [
+      "oxfmt"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": "^10"
+  },
+  "packageManager": "pnpm@10.7.1"
+}
