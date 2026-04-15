@@ -1,6 +1,6 @@
 {
   "name": "@ecss/typescript-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript Language Service Plugin for ECSS — provides per-file types for .ecss imports.",
   "keywords": [
     "css",
